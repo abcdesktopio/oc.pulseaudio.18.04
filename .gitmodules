@@ -1,0 +1,3 @@
+[submodule "etc/pulse"]
+	path = etc/pulse
+	url = https://github.com/abcdesktopio/pulse.git
