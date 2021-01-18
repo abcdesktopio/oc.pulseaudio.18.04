@@ -38,4 +38,4 @@ jobs:
           context: .
           push: true
           tags: |
-            abcdesktopio/oc.pulseaudio.18.04:latest
+            abcdesktopio/oc.pulseaudio.18.04:dev
