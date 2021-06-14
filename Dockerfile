@@ -27,9 +27,9 @@ RUN DEBIAN_FRONTEND=noninteractive  apt-get update && apt-get install -y --no-in
 
 # apt install iproute2 install ip command
 # iputils-ping and vin can be removed
-RUN DEBIAN_FRONTEND=noninteractive  apt-get update && apt-get install -y   --no-install-recommends     \
-        iproute2                                                                \
-        && apt-get clean
+# RUN DEBIAN_FRONTEND=noninteractive  apt-get update && apt-get install -y   --no-install-recommends     \
+#         iproute2                                                                \
+#        && apt-get clean
 
 ## DBUS SECTION
 RUN 	mkdir -p /var/run/dbus 		&& \
