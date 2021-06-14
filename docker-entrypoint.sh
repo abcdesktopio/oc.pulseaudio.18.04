@@ -1,14 +1,14 @@
 #!/bin/bash
 
+# dump for debug
+# id > /tmp/docker-entrypoint-pulseaudio.log
+# env >> /tmp/docker-entrypoint-pulseaudio.log
+# echo "ls -la $HOME" >> /tmp/docker-entrypoint-pulseaudio.log
+# ls -la $HOME >> /tmp/docker-entrypoint-pulseaudio.log
+# echo "ls done" >> /tmp/docker-entrypoint-pulseaudio.log
+# ls -la /etc/pulse >> /tmp/docker-entrypoint-pulseaudio.log
 
-id > /tmp/docker-entrypoint-pulseaudio.log
-env >> /tmp/docker-entrypoint-pulseaudio.log
-echo "ls -la $HOME" >> /tmp/docker-entrypoint-pulseaudio.log
-ls -la $HOME >> /tmp/docker-entrypoint-pulseaudio.log
-echo "ls done" >> /tmp/docker-entrypoint-pulseaudio.log
-ls -la /etc/pulse >> /tmp/docker-entrypoint-pulseaudio.log
-
-CONTAINER_IP_ADDR=$(ip route get 1 | awk '{print $7;exit}')
+CONTAINER_IP_ADDR=$(hostname -i)
 echo "Container local ip addr is $CONTAINER_IP_ADDR"
 export CONTAINER_IP_ADDR
 
