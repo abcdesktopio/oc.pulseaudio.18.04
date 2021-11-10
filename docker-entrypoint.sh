@@ -16,6 +16,12 @@ export CONTAINER_IP_ADDR
 sed -i "s/module-http-protocol-tcp/module-http-protocol-tcp listen=$CONTAINER_IP_ADDR/g" /etc/pulse/default.pa 
 sed -i "s/module-native-protocol-tcp/module-native-protocol-tcp listen=$CONTAINER_IP_ADDR/g" /etc/pulse/default.pa 
 
+if [ ! -z "$PULSEAUDIO_COOKIE" ]; then
+  mkdir -p ~/.config/pulse
+	P=$PULSEAUDIO_COOKIE
+	echo $P$P$P$P$P$P$P$P | xxd -r -p > ~/.config/pulse/cookie 
+fi
+
 #mkdir -p /home/balloon/.pulseaudio
 # /usr/bin/pulseaudio --log-level=0 --log-target=newfile:/tmp/docker-entrypoint-pulseaudio.pulseaduio.log 
 #HOME=/home/balloon/.pulseaudio 
