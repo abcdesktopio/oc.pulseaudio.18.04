@@ -14,6 +14,7 @@ export CONTAINER_IP_ADDR
 
 # replace CONTAINER_IP_ADDR in listen for pulseaudio
 sed -i "s/module-http-protocol-tcp/module-http-protocol-tcp listen=$CONTAINER_IP_ADDR/g" /etc/pulse/default.pa 
+sed -i "s/module-native-protocol-tcp/module-native-protocol-tcp listen=$CONTAINER_IP_ADDR/g" /etc/pulse/default.pa 
 
 #mkdir -p /home/balloon/.pulseaudio
 # /usr/bin/pulseaudio --log-level=0 --log-target=newfile:/tmp/docker-entrypoint-pulseaudio.pulseaduio.log 
