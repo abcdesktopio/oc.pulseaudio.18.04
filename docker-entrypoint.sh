@@ -18,8 +18,7 @@ sed -i "s/module-native-protocol-tcp/module-native-protocol-tcp listen=$CONTAINE
 
 if [ ! -z "$PULSEAUDIO_COOKIE" ]; then
   mkdir -p ~/.config/pulse
-	P=$PULSEAUDIO_COOKIE
-	echo $P$P$P$P$P$P$P$P | xxd -r -p > ~/.config/pulse/cookie 
+  cat /etc/pulse/cookie | openssl rc4 -K "$PULSEAUDIO_COOKIE" -nopad -nosalt > ~/.config/pulse/cookie  
 fi
 
 #mkdir -p /home/balloon/.pulseaudio

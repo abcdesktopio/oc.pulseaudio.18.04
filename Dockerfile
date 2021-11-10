@@ -14,14 +14,11 @@ ENV DEBCONF_FRONTEND noninteractive
 ENV TERM linux
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
-RUN DEBIAN_FRONTEND=noninteractive  apt-get update && apt-get install -y  --no-install-recommends \
-        apt-utils                       \
-        && apt-get clean
-
 RUN DEBIAN_FRONTEND=noninteractive  apt-get update && apt-get install -y --no-install-recommends\
         pulseaudio                      \
         pulseaudio-utils                \
 	dbus				\
+	openssl				\
         && apt-get clean
 
 
@@ -65,4 +62,4 @@ USER balloon
 CMD /docker-entrypoint.sh
 
 # expose pulseaudio tcp port
-EXPOSE 4714
+EXPOSE 4713 4714
