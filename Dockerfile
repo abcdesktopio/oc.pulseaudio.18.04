@@ -14,10 +14,6 @@ ENV DEBCONF_FRONTEND noninteractive
 ENV TERM linux
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
-RUN DEBIAN_FRONTEND=noninteractive  apt-get update && apt-get install -y  --no-install-recommends \
-        apt-utils                       \
-        && apt-get clean
-
 RUN DEBIAN_FRONTEND=noninteractive  apt-get update && apt-get install -y --no-install-recommends\
         pulseaudio                      \
         pulseaudio-utils                \
