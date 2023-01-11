@@ -19,3 +19,14 @@ git clone git://github.com/abcdesktopio/oc.pulseaudio.18.04
 cd oc.pulseaudio.18.04
 git submodule update --init --recursive --remote
 ```
+
+
+
+### build `oc.pulseaudio.18.04:3.0` image
+
+
+```
+docker build -t abcdesktopio/oc.pulseaudio.18.04:3.0 .
+```
+
+
